@@ -55,24 +55,24 @@ export const Dashboard: React.FC = () => {
         {/* Sidebar */}
         <div className={`${
           sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-        } fixed lg:relative lg:translate-x-0 inset-y-0 left-0 z-50 w-80 transition-transform duration-300 ease-in-out lg:z-0`}>
+        } fixed lg:relative lg:translate-x-0 inset-y-0 left-0 z-50 w-72 sm:w-80 transition-transform duration-300 ease-in-out lg:z-0`}>
           <Sidebar />
         </div>
         
         {/* Mobile sidebar toggle */}
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
-          className="fixed top-4 left-4 z-50 p-2 bg-white dark:bg-gray-800 rounded-lg shadow-lg lg:hidden"
+          className="fixed top-3 left-3 sm:top-4 sm:left-4 z-50 p-2 bg-white dark:bg-gray-800 rounded-lg shadow-lg lg:hidden"
         >
           {sidebarOpen ? (
-            <X className="w-6 h-6 text-gray-600 dark:text-gray-400" />
+            <X className="w-5 h-5 sm:w-6 sm:h-6 text-gray-600 dark:text-gray-400" />
           ) : (
-            <Menu className="w-6 h-6 text-gray-600 dark:text-gray-400" />
+            <Menu className="w-5 h-5 sm:w-6 sm:h-6 text-gray-600 dark:text-gray-400" />
           )}
         </button>
         
         {/* Main content */}
-        <div className="flex-1 lg:ml-0">
+        <div className="flex-1 lg:ml-0 min-w-0">
           <ChatInterface />
         </div>
       </div>

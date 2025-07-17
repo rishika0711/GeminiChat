@@ -109,17 +109,17 @@ export const MessageList: React.FC = () => {
   return (
     <div className="h-full flex flex-col bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
       {/* Header */}
-      <div className="flex-shrink-0 border-b border-gray-200/50 dark:border-gray-700/50 p-6 bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl">
-        <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
-            <MessageCircle className="w-5 h-5 text-white" />
+      <div className="flex-shrink-0 border-b border-gray-200/50 dark:border-gray-700/50 p-3 sm:p-4 lg:p-6 bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl">
+        <div className="flex items-center space-x-2 sm:space-x-3">
+          <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg">
+            <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
           </div>
           <div>
-            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+            <h2 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">
               {currentChatroom.title}
             </h2>
-            <div className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
-              <Sparkles className="w-3 h-3 text-purple-500" />
+            <div className="flex items-center space-x-1 sm:space-x-2 text-xs sm:text-sm text-gray-500 dark:text-gray-400">
+              <Sparkles className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-purple-500" />
               <span>AI-powered conversation</span>
             </div>
           </div>
@@ -130,32 +130,32 @@ export const MessageList: React.FC = () => {
       <div
         ref={containerRef}
         onScroll={handleScroll}
-        className="flex-1 overflow-y-auto p-6 space-y-4 min-h-0"
+        className="flex-1 overflow-y-auto p-3 sm:p-4 lg:p-6 space-y-3 sm:space-y-4 min-h-0"
         style={{ scrollBehavior: 'smooth' }}
       >
         {isLoadingMore && (
-          <div className="flex justify-center py-4">
+          <div className="flex justify-center py-2 sm:py-4">
             <LoadingSkeleton variant="message" count={3} />
           </div>
         )}
         
         {!canLoadMore && currentMessages.length > 0 && (
-          <div className="text-center py-4">
-            <p className="text-sm text-gray-500 dark:text-gray-400 bg-white/50 dark:bg-gray-800/50 rounded-full px-4 py-2 inline-block backdrop-blur-sm">
+          <div className="text-center py-2 sm:py-4">
+            <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 bg-white/50 dark:bg-gray-800/50 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 inline-block backdrop-blur-sm">
               Beginning of conversation
             </p>
           </div>
         )}
         
         {currentMessages.length === 0 && !isLoadingMore && (
-          <div className="text-center py-12">
-            <div className="w-16 h-16 bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <Bot className="w-8 h-8 text-purple-500" />
+          <div className="text-center py-8 sm:py-12">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6">
+              <Bot className="w-6 h-6 sm:w-8 sm:h-8 text-purple-500" />
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+            <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-2 sm:mb-3">
               Start a conversation
             </h3>
-            <p className="text-gray-600 dark:text-gray-400 max-w-sm mx-auto leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-400 max-w-xs sm:max-w-sm mx-auto leading-relaxed text-sm sm:text-base px-4">
               Send a message to begin chatting with Gemini AI. Ask questions, get help, or just have a conversation!
             </p>
           </div>
@@ -174,9 +174,9 @@ export const MessageList: React.FC = () => {
       {!isAtBottom && (
         <button
           onClick={scrollToBottom}
-          className="absolute bottom-6 right-6 p-3 bg-blue-500 hover:bg-blue-600 text-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 z-10"
+          className="absolute bottom-4 sm:bottom-6 right-3 sm:right-6 p-2 sm:p-3 bg-blue-500 hover:bg-blue-600 text-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 z-10"
         >
-          <ChevronUp className="w-5 h-5 rotate-180" />
+          <ChevronUp className="w-4 h-4 sm:w-5 sm:h-5 rotate-180" />
         </button>
       )}
     </div>

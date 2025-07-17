@@ -111,18 +111,18 @@ export const OTPForm: React.FC = () => {
 
   return (
     <div className="w-full max-w-md">
-      <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+      <div className="text-center mb-6 sm:mb-8">
+        <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 dark:text-white mb-1 sm:mb-2">
           Enter OTP
-        </h1>
-        <p className="text-gray-600 dark:text-gray-400">
+        </h2>
+        <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm">
           We've sent a 6-digit code to your phone
         </p>
       </div>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
         <div>
-          <div className="flex justify-center space-x-2 mb-2">
+          <div className="flex justify-center space-x-1.5 sm:space-x-2 mb-2">
             {otp.map((digit, index) => (
               <input
                 key={index}
@@ -134,12 +134,12 @@ export const OTPForm: React.FC = () => {
                 onChange={(e) => handleOtpChange(index, e.target.value)}
                 onKeyDown={(e) => handleKeyDown(index, e)}
                 onPaste={handlePaste}
-                className="w-12 h-12 text-center text-xl font-bold border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+                className="w-10 h-10 sm:w-12 sm:h-12 text-center text-lg sm:text-xl font-bold border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-all duration-200"
               />
             ))}
           </div>
           {errors.otp && (
-            <p className="text-sm text-red-600 dark:text-red-400 text-center">
+            <p className="text-xs sm:text-sm text-red-600 dark:text-red-400 text-center">
               {errors.otp.message}
             </p>
           )}
@@ -148,7 +148,7 @@ export const OTPForm: React.FC = () => {
         <Button
           type="submit"
           loading={isLoading}
-          className="w-full"
+          className="w-full text-sm sm:text-base py-2.5 sm:py-3"
           size="lg"
         >
           Verify OTP
@@ -158,7 +158,7 @@ export const OTPForm: React.FC = () => {
           <button
             type="button"
             onClick={handleResendOtp}
-            className="text-blue-600 hover:text-blue-500 text-sm font-medium"
+            className="text-blue-600 hover:text-blue-500 text-xs sm:text-sm font-medium transition-colors duration-200"
           >
             Didn't receive code? Go back
           </button>

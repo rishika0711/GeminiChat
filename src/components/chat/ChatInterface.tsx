@@ -4,7 +4,7 @@ import { MessageInput } from './MessageInput';
 
 export const ChatInterface: React.FC = () => {
   return (
-    <div className="h-full flex flex-col">
+    <div className="h-full w-full flex flex-col overflow-hidden">
       <MessageList />
       <MessageInput />
     </div>
